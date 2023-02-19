@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>time until christmas eve</h1>
+    <h3>00:00:00</h3>
+
+    <script>
+        const leaveTime = document.querySelector('h3');
+        
+        function diffDay(){
+            const christmasEve = new Date(2023, 11, 25)
+            const today = new Date();
+            const diff = christmasEve.getTime()-today.getTime();
+
+            const diffDay = String(Math.floor(diff / (1000*60*60*24)));
+            const diffHour = String(Math.floor((diff / (1000*60*60)) % 24)).padStart(2,'0');
+            const diffMin = String(Math.floor((diff / (1000*60)) % 60)).padStart(2,'0');
+            const diffSec = String(Math.floor(diff / 1000 % 60)).padStart(2,'0');
+                // padstart는 string일때 사용가능하므로 타입변경
+            leaveTime.innerText = `${diffDay}d :${diffHour}h : ${diffMin}m : ${diffSec}s`;
+        }
+        diffDay()
+        setInterval(diffDay,1000);
+        
+
+
+
+
+    // const clockTitle = document.querySelector("h3");
+    // function getTime() {
+    // const xmasDay = new Date(`${new Date().getFullYear()}-12-25:00:00:00+0900`);
+    // const now = new Date();
+    //     // This is in miliseconds
+    // const difference = new Date(xmasDay - now);
+    // const secondsInMs = Math.floor(difference / 1000);
+    // const minutesInMs = Math.floor(secondsInMs / 60);
+    // const hoursInMs = Math.floor(minutesInMs / 60);
+    // const days = Math.floor(hoursInMs / 24);
+    // const seconds = secondsInMs % 60;
+    // const minutes = minutesInMs % 60;
+    // const hours = hoursInMs % 24;
+    //     // 출력되는 값들은 크리스마스까지 남은 일수, 남은 시간, 남은 분, 남은 초이므로 나머지 값을 얻을 수 있는 모듈러(%)연산
+    //     // 모듈러(%)연산을 할 때 시간, 분, 초의 단위에 맞춰 60 또는 24로 나눠줌
+    // const daysStr = `${days < 10 ? `0${days}` : days}d`;
+    // const hoursStr = `${hours < 10 ? `0${hours}` : hours}h`;
+    // const minutesStr = `${minutes < 10 ? `0${minutes}` : minutes}m `;
+    // const secondsStr = `${seconds < 10 ? `0${seconds}` : seconds}s`;
+    // clockTitle.innerHTML = `${daysStr} ${hoursStr} ${minutesStr} ${secondsStr}`;}
+
+    // getTime();
+    // setInterval(getTime, 1000);
+
+    </script>
+</body>
+</html>
+

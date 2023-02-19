@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>hellow</h1>
+
+    
+    <script>
+        function bgResize(){
+
+        const widthSize = window.innerWidth;
+
+        if(widthSize > 700){
+            document.body.classList.add("colorPink");
+            document.body.style.background = 'pink';         
+        }else if( widthSize <=700 && widthSize>400){          
+            document.body.classList.add("colorGreen");
+            document.body.style.backgroundColor = 'green';
+        }else { 
+            document.body.classList.add("colorYellow");
+            document.body.style.backgroundColor = 'yellow';
+        }
+        }
+        window.addEventListener('resize',bgResize);
+    </script>
+</body>
+</html>
+
+
