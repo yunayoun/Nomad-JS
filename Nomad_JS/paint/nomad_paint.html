@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="nomad_paint.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paint</title>
+</head>
+<body>
+    <div id="box">
+        <div class="colorbox">
+            <input id="color" type="color">
+            <div>
+                <div class="color-option" style="background-color: #3498db;"data-color ='#3498db'></div>
+                <div class="color-option" style="background-color: #34495e;"data-color ='#34495e'></div>
+                <div class="color-option" style="background-color: #27ae60;"data-color ='#27ae60'></div>
+                <div class="color-option" style="background-color: #8e44ad;"data-color ='#8e44ad'></div>
+                <div class="color-option" style="background-color: #f1c40f;"data-color ='#f1c40f'></div>
+                <div class="color-option" style="background-color: #e74c3c;"data-color ='#e74c3c'></div>
+                <div class="color-option" style="background-color: #95a5a6;"data-color ='#95a5a6'></div>
+                <div class="color-option" style="background-color: #d35400;"data-color ='#d35400'></div>
+                <div class="color-option" style="background-color: #bdc3c7;"data-color ='#bdc3c7'></div>
+                <div class="color-option" style="background-color: #2ecc71;"data-color ='#2ecc71'></div>
+                <div class="color-option" style="background-color: #e67e22;"data-color ='#e67e22'></div>
+            </div>
+        </div>
+        <canvas></canvas>
+        <div class="setbox">
+            <span>Pencil Width</span>
+            <input id="line-width" type="range" class="cssbtn" min="1" max="10" value="5" step="1">
+            <button id="mode-btn" class="cssbtn">fill</button>
+            <button id="destroy-btn"class="cssbtn">❌ destroy</button>
+            <button id="eraser-btn"class="cssbtn">⚪️ eraser</button>
+            <label for="file">Add photo
+            <!-- label for 이랑 id 같으면 따로있어도 상관없음 -->
+                <input type='file' accept="image/*" id="file">
+            </label>
+            <input type="text" placeholder="Add text here!" id="text">
+            <button id="save"class="cssbtn">save img</button>
+        </div>
+        
+    </div>
+    
+
+
+
+
+
+
+    <script src="nomad_paint.js"></script>
+</body>
+</html>
