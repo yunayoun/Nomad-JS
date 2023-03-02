@@ -1,35 +1,37 @@
-import { useState,useEffect } from "react";
-
+import { useState } from "react";
 
 function App() {
-  const [counter,setValue] = useState(0);
-  const [keyword,setKeyword] = useState('');
-  const onClick = ()=> setValue((prev)=>prev+1);
-  const onChange = (e)=>setKeyword(e.target.value);
-
-  useEffect(()=>{
-    console.log('only once')
-  },[]);
-  useEffect(()=>{
-    console.log('keyword change')
-  },[keyword]);
-  useEffect(()=>{
-    console.log('counter&&keyword change')
-  },[counter,keyword]);
+  const [toDo,setToDo] = useState('');
+  const [toDos,setToDos] = useState([]);
+  const onChange = (e)=>{setToDo(e.target.value)}
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    if(toDo===''){
+      return;
+    }
+    setToDos((currentArr)=>[toDo, ...currentArr]);
+    setToDo('');
+  }
 
   return (
     <div>
-    <input 
-    value = {keyword} 
-    onChange={onChange} 
-    placeholder='write' 
-    type='text'
-    ></input>
-    <h1>{counter}</h1>
-    <button onClick = {onClick}>click me</button>
+      <h1>MY TO DO({toDos.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input 
+          value={toDo} 
+          onChange={onChange} 
+          type='text' 
+          placeholder="write..."
+        ></input>
+        <button >add to do</button>
+      </form>
+      <hr/>
+      <ul>
+        {/* {toDos.map((item)=> <li >{item}</li>)} 오류뜸.key 필요 */}
+        {toDos.map((item,index)=> <li key={index}>{item}</li>)}
+      </ul>
     </div>
   );
 }
 
 export default App;
-//useEffect가 두번반복된이유는 index.js에서 검사하는태그때문.
