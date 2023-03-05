@@ -1,30 +1,32 @@
-import { useState,useEffect } from "react";
+
+import React, { useState } from "react";
 
 function App() {
-  const [loading,setLoading] = useState(true);
-  const [coins,setCoins] = useState([]);
-  useEffect(()=>{
-    fetch('https://api.coinpaprika.com/v1/tickers')
-      .then((response)=>response.json())
-      .then((json) => {
-        setCoins(json);
-        setLoading(false);
-      });
-  },[]);
-  return (
-    <div>
-      <h1>The Coins {loading ? "" : `(${coins.length})`}</h1>
-      {loading ? 
-        (<strong>Loading..</strong>) : (
-      <select>
-        {coins.map((coin)=>
-          <option>
-            {coin.name} {coin.symbol} : ${coin.quotes.USD.price}USD
-          </option>
-          )}
-        </select>
-        )}
-    </div>
-  );
+
+const [num,setNum] = useState(0)
+const [name,setName] = useState('')
+const [isChecked,setIsChecked] = useState(false)
+
+return(
+  <div>
+    <input 
+    type="number"
+    value={num}
+    onChange={(e)=>setNum(e.target.value)}
+    />
+    <input
+    type='text'
+    value={name}
+    onChange={(e)=>setName(e.target.value)}
+    />
+    <input
+    type='checkbox'
+    value={isChecked}
+    onChange={(e)=>{setIsChecked(e.target.checked)}}
+    />
+    {isChecked? <span>체크됨</span> : <span>체크안됨</span>}
+  </div>
+)
 }
+
 export default App;
