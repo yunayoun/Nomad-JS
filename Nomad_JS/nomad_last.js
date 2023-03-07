@@ -27,7 +27,7 @@
         const images = ['house1.jpeg','house2.jpeg','house3.jpeg'];
         const randomImg = images[Math.floor(Math.random()*images.length)];
         const bgImg = document.createElement('img');
-        bgImg.src = `../../img/${randomImg}`;
+        bgImg.src = `${randomImg}`;
         document.body.appendChild(bgImg);
         // prepend는 맨뒤로붙음
 
