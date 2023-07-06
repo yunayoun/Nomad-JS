@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+
 //dummy
 const User = {
   email : 'test@test.com',
@@ -7,11 +8,11 @@ const User = {
 }
 
 export default function Login(){
-const [email,setEmail] = useState('');
-const [pw,setPw] = useState('');
-const [emailValid,setEmailValid] = useState(false)
-const [pwValid,setPwValid] = useState(false);
-const [notAllow,setNotAllow] = useState(true);//비활성화
+  const [email,setEmail] = useState('');
+  const [pw,setPw] = useState('');
+  const [emailValid,setEmailValid] = useState(false)
+  const [pwValid,setPwValid] = useState(false);
+  const [notAllow,setNotAllow] = useState(true);//비활성화
 
 const handleEmail=(e)=>{
   setEmail(e.target.value);
@@ -35,7 +36,7 @@ const handlePw=(e)=>{
     if(email == User.email && pw === User.pw){
       alert('로그인 성공');
     }else{
-      alert('실패,다시해주세요');
+      alert('다시 시도해주세요');
     }
   }
 
@@ -53,13 +54,13 @@ return(
   <>
   <div className='page'>
     <div className="titleWrap">
-      이메일과 비밀번호를 
-      <br/>입력해줘
+      Login
     </div>
     <div className="contentWrap">
-      <div className='inputTitle'>이메일주소</div>
+      {/* <div className='inputTitle'>이메일주소</div> */}
       <div className='inputWrap'>
         <input 
+          placeholder="Email"
           type='text'
           className ='input'
           value={email}
@@ -69,13 +70,14 @@ return(
       <div className="errMessage">
         {
           !emailValid && email.length>0 &&(
-            <div> 올바른이메일을입력해주세요</div>
+            <div> 예시: abcd@yahoo.com</div>
         )}
       </div>
 
-      <div className='inputTitle'>비밀번호</div>
+      {/* <div className='inputTitle'>비밀번호</div> */}
       <div className='inputWrap'>
         <input
+          placeholder="비밀번호"
           type='password'
           className = 'input'
           value={pw}
@@ -85,12 +87,13 @@ return(
       <div className="errMessage">
       {
           !pwValid && pw.length>0 &&(
-            <div>맞게 입력해주세요</div>//valid가아니거나 pw한글자라도있으면
+            <div>비밀번호가 틀립니다</div>//valid가아니거나 pw한글자라도있으면
         )}
       </div>
     </div> 
       <div>
-        <button onClick={clickConfirm} disabled={notAllow} className="bottomBtn">버튼</button>
+        <button onClick={clickConfirm} disabled={notAllow} className="buttonBtn">로그인</button>
+        <a className="newAccount">don't have an account?</a>
       </div>
   </div>
   </>
